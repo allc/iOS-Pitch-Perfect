@@ -32,44 +32,8 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     
     override func viewWillAppear(animated: Bool) {
         // Hide the stop button
-        stopButton.hidden = true
+        releaseToFinish.hidden = true
         recordButton.enabled = true
-    }
-
-    @IBAction func recordAudio(sender: UIButton) {
-        stopButton.hidden = false
-        recordButton.enabled = false
-        //TODO: Show text "recording in progress"
-        recordingInProgress.hidden = false
-        
-        //TODO: record the user's voice
-        let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
-        
-        let currentDateTime = NSDate()
-        let formatter = NSDateFormatter()
-        formatter.dateFormat = "ddMMyyyy-HHmmss"
-        let recordingName = formatter.stringFromDate(currentDateTime) + ".wav"
-        let pathArray = [dirPath, recordingName]
-        let filePath = NSURL.fileURLWithPathComponents(pathArray)
-        println(filePath)
-        
-        var session = AVAudioSession.sharedInstance()
-        session.setCategory(AVAudioSessionCategoryPlayAndRecord, error: nil)
-        // Initialize and prepare the recorder
-        audioRecorder = AVAudioRecorder(URL: filePath, settings: nil, error: nil)
-        audioRecorder.delegate = self
-        audioRecorder.meteringEnabled = true
-        audioRecorder.prepareToRecord()
-        audioRecorder.record()
-        println("in recordAudio")
-    }
-
-    @IBAction func stopRecord(sender: UIButton) {
-        //TODO: Hide text "recording in progress"
-        recordingInProgress.hidden = true
-        audioRecorder.stop()
-        var audioSession = AVAudioSession.sharedInstance()
-        audioSession.setActive(false, error: nil)
     }
     
     func audioRecorderDidFinishRecording(recorder: AVAudioRecorder!, successfully flag: Bool) {
@@ -95,6 +59,42 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
             let data = sender as RecordedAudio
             playSoundVC.receivedAudio = data
         }
+    }
+    
+    @IBAction func begainRecord(sender: UIButton) {
+        recordButton.enabled = false
+        //TODO: Show text "recording in progress"
+        recordingInProgress.hidden = false
+        releaseToFinish.hidden = false
+        
+        //TODO: record the user's voice
+        let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
+        
+        let currentDateTime = NSDate()
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "ddMMyyyy-HHmmss"
+        let recordingName = formatter.stringFromDate(currentDateTime) + ".wav"
+        let pathArray = [dirPath, recordingName]
+        let filePath = NSURL.fileURLWithPathComponents(pathArray)
+        println(filePath)
+        
+        var session = AVAudioSession.sharedInstance()
+        session.setCategory(AVAudioSessionCategoryPlayAndRecord, error: nil)
+        // Initialize and prepare the recorder
+        audioRecorder = AVAudioRecorder(URL: filePath, settings: nil, error: nil)
+        audioRecorder.delegate = self
+        audioRecorder.meteringEnabled = true
+        audioRecorder.prepareToRecord()
+        audioRecorder.record()
+    }
+    
+    @IBAction func finishRecord(sender: UIButton) {
+        //TODO: Hide text "recording in progress"
+        recordingInProgress.hidden = true
+        releaseToFinish.hidden = true
+        audioRecorder.stop()
+        var audioSession = AVAudioSession.sharedInstance()
+        audioSession.setActive(false, error: nil)
     }
     
 }
