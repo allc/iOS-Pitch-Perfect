@@ -24,10 +24,11 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="begainRecord:" destination="vXZ-lx-hvc" eventType="touchDown" id="gNd-Pk-6xb"/>
                                     <action selector="recordAudio:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="gxE-sW-feI"/>
                                 </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="recording" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KcU-7g-EGy">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="recording..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KcU-7g-EGy">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="14"/>
                                 <color key="textColor" red="0.14509803921568626" green="0.28235294117647058" blue="0.43137254901960786" alpha="1" colorSpace="calibratedRGB"/>
@@ -42,29 +43,40 @@
                                     <action selector="stopRecord:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="x0E-VC-70z"/>
                                 </connections>
                             </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="release to finish" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YoU-lw-khR">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="14"/>
+                                <color key="textColor" red="0.10196078431372549" green="0.21568627450980393" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="YoU-lw-khR" firstAttribute="top" secondItem="KcU-7g-EGy" secondAttribute="bottom" constant="8" id="4Sr-8C-LcK"/>
+                            <constraint firstAttribute="centerX" secondItem="YoU-lw-khR" secondAttribute="centerX" constant="-0.5" id="QcI-4o-o1u"/>
                             <constraint firstAttribute="centerY" secondItem="XKj-v3-xND" secondAttribute="centerY" id="SBd-UY-Mrf"/>
                             <constraint firstAttribute="centerX" secondItem="dgb-5z-gAY" secondAttribute="centerX" id="aqS-Gw-VG6"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="dgb-5z-gAY" secondAttribute="bottom" constant="46" id="gGl-DV-9Jr"/>
-                            <constraint firstItem="KcU-7g-EGy" firstAttribute="top" secondItem="XKj-v3-xND" secondAttribute="bottom" constant="26" id="obQ-k5-OAw"/>
-                            <constraint firstAttribute="centerX" secondItem="KcU-7g-EGy" secondAttribute="centerX" constant="2.5" id="s8a-tx-Lck"/>
+                            <constraint firstItem="XKj-v3-xND" firstAttribute="top" secondItem="YoU-lw-khR" secondAttribute="bottom" constant="58" id="sNk-uM-tpv"/>
                             <constraint firstAttribute="centerX" secondItem="XKj-v3-xND" secondAttribute="centerX" id="t3z-TT-c4j"/>
+                            <constraint firstAttribute="centerX" secondItem="KcU-7g-EGy" secondAttribute="centerX" constant="-0.25" id="wVg-YN-ECp"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="XKj-v3-xND"/>
                                 <exclude reference="KcU-7g-EGy"/>
                                 <exclude reference="dgb-5z-gAY"/>
+                                <exclude reference="YoU-lw-khR"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="gGl-DV-9Jr"/>
-                                <exclude reference="obQ-k5-OAw"/>
-                                <exclude reference="s8a-tx-Lck"/>
+                                <exclude reference="wVg-YN-ECp"/>
+                                <exclude reference="4Sr-8C-LcK"/>
+                                <exclude reference="QcI-4o-o1u"/>
                                 <exclude reference="SBd-UY-Mrf"/>
+                                <exclude reference="sNk-uM-tpv"/>
                                 <exclude reference="t3z-TT-c4j"/>
                                 <exclude reference="aqS-Gw-VG6"/>
+                                <exclude reference="gGl-DV-9Jr"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -72,14 +84,17 @@
                                 <include reference="XKj-v3-xND"/>
                                 <include reference="KcU-7g-EGy"/>
                                 <include reference="dgb-5z-gAY"/>
+                                <include reference="YoU-lw-khR"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="gGl-DV-9Jr"/>
-                                <include reference="obQ-k5-OAw"/>
-                                <include reference="s8a-tx-Lck"/>
+                                <include reference="wVg-YN-ECp"/>
+                                <include reference="4Sr-8C-LcK"/>
+                                <include reference="QcI-4o-o1u"/>
                                 <include reference="SBd-UY-Mrf"/>
+                                <include reference="sNk-uM-tpv"/>
                                 <include reference="t3z-TT-c4j"/>
                                 <include reference="aqS-Gw-VG6"/>
+                                <include reference="gGl-DV-9Jr"/>
                             </mask>
                         </variation>
                     </view>
@@ -87,6 +102,7 @@
                     <connections>
                         <outlet property="recordButton" destination="XKj-v3-xND" id="6Ho-Mb-ck0"/>
                         <outlet property="recordingInProgress" destination="KcU-7g-EGy" id="kjn-U4-Pma"/>
+                        <outlet property="releaseToFinish" destination="YoU-lw-khR" id="B1g-Ic-ZZK"/>
                         <outlet property="stopButton" destination="dgb-5z-gAY" id="Hyj-3W-xFM"/>
                         <segue destination="cza-nA-YRd" kind="show" identifier="stopRecording" id="XO2-lK-wf8"/>
                     </connections>
