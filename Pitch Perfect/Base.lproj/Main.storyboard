@@ -197,6 +197,8 @@
                                 <exclude reference="5qh-HS-vuZ"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="ggT-i5-xb8"/>
+                                <exclude reference="IhX-tH-OwN"/>
                                 <exclude reference="Fr7-Ut-Lfi"/>
                                 <exclude reference="KLr-gv-1E8"/>
                                 <exclude reference="BnJ-bw-9hk"/>
@@ -205,10 +207,8 @@
                                 <exclude reference="pDq-KL-mcz"/>
                                 <exclude reference="SsR-Ee-DFP"/>
                                 <exclude reference="ZeT-EN-H7b"/>
-                                <exclude reference="ggT-i5-xb8"/>
                                 <exclude reference="RbP-Ht-mce"/>
                                 <exclude reference="V4D-pn-o5P"/>
-                                <exclude reference="IhX-tH-OwN"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -221,6 +221,8 @@
                                 <include reference="5qh-HS-vuZ"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="ggT-i5-xb8"/>
+                                <include reference="IhX-tH-OwN"/>
                                 <include reference="Fr7-Ut-Lfi"/>
                                 <include reference="KLr-gv-1E8"/>
                                 <include reference="BnJ-bw-9hk"/>
@@ -229,10 +231,8 @@
                                 <include reference="pDq-KL-mcz"/>
                                 <include reference="SsR-Ee-DFP"/>
                                 <include reference="ZeT-EN-H7b"/>
-                                <include reference="ggT-i5-xb8"/>
                                 <include reference="RbP-Ht-mce"/>
                                 <include reference="V4D-pn-o5P"/>
-                                <include reference="IhX-tH-OwN"/>
                             </mask>
                         </variation>
                     </view>

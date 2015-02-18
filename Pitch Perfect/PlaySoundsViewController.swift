@@ -18,6 +18,9 @@ class PlaySoundsViewController: UIViewController {
     
     var audioEngine:AVAudioEngine!
     var audioFile:AVAudioFile!
+    
+    var session = AVAudioSession.sharedInstance()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +39,8 @@ class PlaySoundsViewController: UIViewController {
         
         audioEngine = AVAudioEngine()
         audioFile = AVAudioFile(forReading: receivedAudio.filePath, error: nil)
+        
+        session.setCategory(AVAudioSessionCategoryPlayback, error: nil)
     }
 
     override func didReceiveMemoryWarning() {
