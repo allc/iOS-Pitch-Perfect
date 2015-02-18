@@ -40,12 +40,20 @@
                                 <color key="textColor" red="0.10196078431372549" green="0.21568627450980393" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="try to press for a longer time..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7zA-H8-GxT">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <color key="textColor" red="0.10196078431372549" green="0.2196078431372549" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="YoU-lw-khR" firstAttribute="top" secondItem="KcU-7g-EGy" secondAttribute="bottom" constant="8" id="4Sr-8C-LcK"/>
                             <constraint firstAttribute="centerX" secondItem="YoU-lw-khR" secondAttribute="centerX" constant="-0.5" id="QcI-4o-o1u"/>
                             <constraint firstAttribute="centerY" secondItem="XKj-v3-xND" secondAttribute="centerY" id="SBd-UY-Mrf"/>
+                            <constraint firstItem="XKj-v3-xND" firstAttribute="top" secondItem="7zA-H8-GxT" secondAttribute="bottom" constant="68" id="o3x-lL-UY2"/>
+                            <constraint firstAttribute="centerX" secondItem="7zA-H8-GxT" secondAttribute="centerX" constant="-0.5" id="qpl-JG-8Gy"/>
                             <constraint firstItem="XKj-v3-xND" firstAttribute="top" secondItem="YoU-lw-khR" secondAttribute="bottom" constant="58" id="sNk-uM-tpv"/>
                             <constraint firstAttribute="centerX" secondItem="XKj-v3-xND" secondAttribute="centerX" id="t3z-TT-c4j"/>
                             <constraint firstAttribute="centerX" secondItem="KcU-7g-EGy" secondAttribute="centerX" constant="-0.25" id="wVg-YN-ECp"/>
@@ -55,12 +63,15 @@
                                 <exclude reference="XKj-v3-xND"/>
                                 <exclude reference="KcU-7g-EGy"/>
                                 <exclude reference="YoU-lw-khR"/>
+                                <exclude reference="7zA-H8-GxT"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="qpl-JG-8Gy"/>
                                 <exclude reference="wVg-YN-ECp"/>
                                 <exclude reference="4Sr-8C-LcK"/>
                                 <exclude reference="QcI-4o-o1u"/>
                                 <exclude reference="SBd-UY-Mrf"/>
+                                <exclude reference="o3x-lL-UY2"/>
                                 <exclude reference="sNk-uM-tpv"/>
                                 <exclude reference="t3z-TT-c4j"/>
                             </mask>
@@ -70,12 +81,15 @@
                                 <include reference="XKj-v3-xND"/>
                                 <include reference="KcU-7g-EGy"/>
                                 <include reference="YoU-lw-khR"/>
+                                <include reference="7zA-H8-GxT"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="qpl-JG-8Gy"/>
                                 <include reference="wVg-YN-ECp"/>
                                 <include reference="4Sr-8C-LcK"/>
                                 <include reference="QcI-4o-o1u"/>
                                 <include reference="SBd-UY-Mrf"/>
+                                <include reference="o3x-lL-UY2"/>
                                 <include reference="sNk-uM-tpv"/>
                                 <include reference="t3z-TT-c4j"/>
                             </mask>
@@ -83,6 +97,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Record" id="DAB-Xg-Q2O"/>
                     <connections>
+                        <outlet property="pressLonger" destination="7zA-H8-GxT" id="2V7-uO-JO0"/>
                         <outlet property="recordButton" destination="XKj-v3-xND" id="6Ho-Mb-ck0"/>
                         <outlet property="recordingInProgress" destination="KcU-7g-EGy" id="kjn-U4-Pma"/>
                         <outlet property="releaseToFinish" destination="YoU-lw-khR" id="B1g-Ic-ZZK"/>
@@ -150,6 +165,12 @@
                                     <action selector="playDarthvaderAudio:" destination="cza-nA-YRd" eventType="touchUpInside" id="oUF-Xy-bMr"/>
                                 </connections>
                             </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="playing..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5qh-HS-vuZ">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -161,7 +182,9 @@
                             <constraint firstItem="6d7-rs-snk" firstAttribute="top" secondItem="2bV-5G-0no" secondAttribute="bottom" constant="50" id="RYd-8H-AEf"/>
                             <constraint firstAttribute="centerX" secondItem="pp5-IP-PGL" secondAttribute="centerX" id="RbP-Ht-mce"/>
                             <constraint firstAttribute="trailingMargin" secondItem="gA7-tZ-xHK" secondAttribute="trailing" constant="30" id="SsR-Ee-DFP"/>
+                            <constraint firstItem="pp5-IP-PGL" firstAttribute="top" secondItem="5qh-HS-vuZ" secondAttribute="bottom" constant="40" id="V4D-pn-o5P"/>
                             <constraint firstItem="gA7-tZ-xHK" firstAttribute="top" secondItem="YQp-fF-EwF" secondAttribute="bottom" constant="50" id="ZeT-EN-H7b"/>
+                            <constraint firstAttribute="centerX" secondItem="5qh-HS-vuZ" secondAttribute="centerX" id="ggT-i5-xb8"/>
                             <constraint firstItem="YQp-fF-EwF" firstAttribute="top" secondItem="mme-Fd-ME9" secondAttribute="bottom" constant="50" id="pDq-KL-mcz"/>
                         </constraints>
                         <variation key="default">
@@ -171,9 +194,9 @@
                                 <exclude reference="pp5-IP-PGL"/>
                                 <exclude reference="6d7-rs-snk"/>
                                 <exclude reference="gA7-tZ-xHK"/>
+                                <exclude reference="5qh-HS-vuZ"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="IhX-tH-OwN"/>
                                 <exclude reference="Fr7-Ut-Lfi"/>
                                 <exclude reference="KLr-gv-1E8"/>
                                 <exclude reference="BnJ-bw-9hk"/>
@@ -182,7 +205,10 @@
                                 <exclude reference="pDq-KL-mcz"/>
                                 <exclude reference="SsR-Ee-DFP"/>
                                 <exclude reference="ZeT-EN-H7b"/>
+                                <exclude reference="ggT-i5-xb8"/>
                                 <exclude reference="RbP-Ht-mce"/>
+                                <exclude reference="V4D-pn-o5P"/>
+                                <exclude reference="IhX-tH-OwN"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -192,9 +218,9 @@
                                 <include reference="pp5-IP-PGL"/>
                                 <include reference="6d7-rs-snk"/>
                                 <include reference="gA7-tZ-xHK"/>
+                                <include reference="5qh-HS-vuZ"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="IhX-tH-OwN"/>
                                 <include reference="Fr7-Ut-Lfi"/>
                                 <include reference="KLr-gv-1E8"/>
                                 <include reference="BnJ-bw-9hk"/>
@@ -203,10 +229,16 @@
                                 <include reference="pDq-KL-mcz"/>
                                 <include reference="SsR-Ee-DFP"/>
                                 <include reference="ZeT-EN-H7b"/>
+                                <include reference="ggT-i5-xb8"/>
                                 <include reference="RbP-Ht-mce"/>
+                                <include reference="V4D-pn-o5P"/>
+                                <include reference="IhX-tH-OwN"/>
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="playingLabel" destination="5qh-HS-vuZ" id="PdR-V2-HaA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="itu-Xx-AZB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

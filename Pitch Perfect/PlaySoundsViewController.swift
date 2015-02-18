@@ -11,6 +11,8 @@ import AVFoundation
 
 class PlaySoundsViewController: UIViewController {
     
+    @IBOutlet weak var playingLabel: UILabel!
+    
     var audioPlayer: AVAudioPlayer!
     var receivedAudio: RecordedAudio!
     
@@ -41,9 +43,19 @@ class PlaySoundsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(animated: Bool) {
+        playingLabel.hidden = true
+    }
+    
     func resetStartTime() {
         audioPlayer.currentTime = 0.0
     }
+    
+//    func audioPlayerDidFinishPlaying(player: AVAudioPlayer!, successfully flag: Bool) {
+//        if(flag) {
+//            playingLabel.hidden = true
+//        }
+//    }
     
     @IBAction func playSoundsSlow(sender: UIButton) {
         audioPlayer.stop()

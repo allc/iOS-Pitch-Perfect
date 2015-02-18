@@ -13,8 +13,8 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
 
     @IBOutlet weak var recordingInProgress: UILabel!
     @IBOutlet weak var releaseToFinish: UILabel!
+    @IBOutlet weak var pressLonger: UILabel!
     
-    @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var recordButton: UIButton!
     
     var audioRecorder: AVAudioRecorder!
@@ -34,6 +34,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         // Hide the stop button
         releaseToFinish.hidden = true
         recordButton.enabled = true
+        pressLonger.hidden = true
     }
     
     func audioRecorderDidFinishRecording(recorder: AVAudioRecorder!, successfully flag: Bool) {
@@ -48,7 +49,6 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         } else {
             println("Recording was not successful")
             recordButton.enabled = true
-            stopButton.hidden = true
         }
         
     }
@@ -66,6 +66,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         //TODO: Show text "recording in progress"
         recordingInProgress.hidden = false
         releaseToFinish.hidden = false
+        pressLonger.hidden = true
         
         //TODO: record the user's voice
         let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
@@ -89,12 +90,20 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     }
     
     @IBAction func finishRecord(sender: UIButton) {
-        //TODO: Hide text "recording in progress"
-        recordingInProgress.hidden = true
-        releaseToFinish.hidden = true
-        audioRecorder.stop()
-        var audioSession = AVAudioSession.sharedInstance()
-        audioSession.setActive(false, error: nil)
+        if (audioRecorder.currentTime >= 0.5) {
+            //TODO: Hide text "recording in progress"
+            recordingInProgress.hidden = true
+            releaseToFinish.hidden = true
+            pressLonger.hidden = true
+            audioRecorder.stop()
+            var audioSession = AVAudioSession.sharedInstance()
+            audioSession.setActive(false, error: nil)
+        } else {
+            recordButton.enabled = true
+            recordingInProgress.hidden = true
+            releaseToFinish.hidden = true
+            pressLonger.hidden = false
+        }
     }
     
 }
